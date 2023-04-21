@@ -1,1 +1,0 @@
-# -service-helm-chart-prometheus-loki-alert-rule

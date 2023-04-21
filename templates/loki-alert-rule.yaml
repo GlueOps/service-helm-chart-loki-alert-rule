@@ -1,0 +1,23 @@
+apiVersion: metacontroller.glueops.dev/v1alpha1
+kind: LokiAlertRuleGroup
+metadata:
+  name: vault-test-24
+spec:
+  name: vault-test-24
+  rules:
+    - alert: vault_errors_24
+      expr: 'rate({namespace="glueops-core-vault"} |= `[ERROR]` [1m]) > 0'
+      labels:
+        severity: critical
+        alertname: vault-alert-24
+        namespace: glueops-core-vault
+      annotations:
+        description: Vault namespace has errors!!
+        summary: Vault namespace has errors!!
+    - alert: vault_errors_25_v2
+      expr: 'rate({namespace="glueops-core-vault"} |= `[ERROR]` [1m]) > 0'
+      labels:
+        severity: critical
+      annotations:
+        description: Vault namespace has errors!!
+        summary: Vault namespace has errors!!

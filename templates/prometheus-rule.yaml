@@ -1,0 +1,23 @@
+apiVersion: metacontroller.glueops.dev/v1alpha1
+kind: LokiAlertRuleGroup
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  groups:
+    - name: {{ .Release.Name }}
+      rules:
+        - alert: {{ .Release.Name }}
+          expr: {{ .Values.expr }}
+          for: {{ .Values.duration }}
+          labels:
+      {{ if ne (toString .Values.labels.team) "nil" }}
+            team: {{ .Values.labels.team }}
+      {{ end }}
+      {{ if ne (toString .Values.labels.component) "nil" }}
+            component: {{ .Values.labels.component }}
+      {{ end }}
+            alertname: {{ .Release.Name }}
+            namespace: {{ .Release.Namespace }}
+          annotations:
+            description: {{ .Values.description }}
