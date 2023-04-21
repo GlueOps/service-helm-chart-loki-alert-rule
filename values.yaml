@@ -1,0 +1,14 @@
+# -- LogQL Expression
+expr: vector(0)
+
+# -- Amount of time for the LogQL expression to be true before an alert gets fired.
+duration: 10m
+
+labels:
+# -- Team name that will react to any alerts
+  team: nil
+# -- Name of component. Ex. backend, frontend, authentication, database, search.
+  component: nil
+  
+# -- Description of the alert. Make this informative to the responding team(s) know what this alert is for.
+description: This is the default alert description. Please change this to be more useful.

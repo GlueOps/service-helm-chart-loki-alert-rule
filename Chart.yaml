@@ -1,0 +1,7 @@
+apiVersion: v2
+name: loki-alert-rule
+description: This chart enables creation of a loki alert based on a LogQL query.
+
+type: application
+
+version: 0.1.0
